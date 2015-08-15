@@ -9,6 +9,7 @@ Sequencer: AB SOLiD System
 
 Data collection and formatting 
 Download data from EMBL and then use csfqGzip2csfastaQual.pl to prepare input file for read mapping using Tophat
+
 $ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR049/SRR049678/SRR049678.fastq.gz -O A2h.fastq.gz
 $ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR049/SRR049679/SRR049679.fastq.gz -O A4h.fastq.gz
 $ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR049/SRR049683/SRR049683.fastq.gz -O B2h.fastq.gz
