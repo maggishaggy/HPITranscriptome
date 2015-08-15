@@ -92,13 +92,13 @@ $ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/Viruses/Vaccinia_virus_uid15241/NC_006
 $ perl ~/install/perl/parseGeneInfoFromGFF.pl vacv.gff > vacvGeneID.txt
 
 
-   Convert GFF format to BED format required by RSeQC application. The name of the viral genome in the output BED file should be consistent with the header of the corresponding genome in the FASTA file.
+Convert GFF format to BED format required by RSeQC application. The name of the viral genome in the output BED file should be consistent with the header of the corresponding genome in the FASTA file.
 $ perl ~/install/perl/gff2bed.pl vacv.gff NC_006998 > vacv.bed
 $ infer_experiment.py -r vacv.bed -i A2h-vacv.bam > A2h.strandSpecific.txt
 
-  The resulting output file A2h.strandSpecific.txt shows the read strandness. If "++,--" is inferred, the HTseq option -s yes will be activated, which enables the reads mapped to the same strand as the feature for single-end reads. Conversely, if “+-,-+” is inferred, -s reverse will be activated.
+The resulting output file A2h.strandSpecific.txt shows the read strandness. If "++,--" is inferred, the HTseq option -s yes will be activated, which enables the reads mapped to the same strand as the feature for single-end reads. Conversely, if “+-,-+” is inferred, -s reverse will be activated.
 
-  As protein-coding regions may be overlapped in the viral genome, we set the overlap resolution mode to intersection-nonempty.
+As protein-coding regions may be overlapped in the viral genome, we set the overlap resolution mode to intersection-nonempty.
 $ perl ~/install/perl/gff2gff.pl vacv.gff NC_006998 > vacv.chrName.gff
 $ htseq-count -f bam -i Name -t CDS -m intersection-nonempty -s yes -q A2h-vacv.bam vacv.chrName.gff > A2h-output-read-count.txt 
 $ htseq-count -f bam -i Name -t CDS -m intersection-nonempty -s yes -q A4h-vacv.bam vacv.chrName.gff > A4h-output-read-count.txt 
