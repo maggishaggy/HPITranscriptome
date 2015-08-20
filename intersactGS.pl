@@ -5,7 +5,7 @@ die "Usage: $0 enriched-gs.tab viral-DE-PPI-human-GS-1.tab  viral-DE-PPI-human-G
 
 open(LIST,$ARGV[0])or die "cannot open $ARGV[0]\n";
 open(GENE,$ARGV[1])or die "cannot open $ARGV[0]\n";
-open(OUT, ">$ARGV[2]") || die "can't open file\n";
+open(OUT, ">$ARGV[2]");
 binmode(OUT);
 my %hash = ();
 

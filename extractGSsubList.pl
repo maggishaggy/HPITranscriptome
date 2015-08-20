@@ -24,7 +24,7 @@ print "$dumpline";
 while(<GENE>){
 	chomp;
     if(/^(\S+)\s+/){
-	 my $gene = $1;
+	 my $gene = uc $1;
 	 if(exists $hash{$gene}){
 	   print "$_\n";
 	   }
